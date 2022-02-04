@@ -1,18 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 
-function PigPhoto({hogs}) {
+function PigPhoto({hogs, handleClick, imageOn}) {
     console.log(hogs)
 
-    const pigTile = hogs.map(hog => {
-        return(
-    <li key={hog.name} className='pigTile'> 
-        <img src={hog.image} alt={hog.name}/>
-        <h3> {hog.name} </h3>
-    </li>)
+    const pigTile = hogs.map((hog) => {
+    return(
+        <li  key={hog.name} className='pigTile'> 
+            <img onClick={handleClick} src={hog.image} alt={hog.name}/>
+            <h3> {hog.name} </h3>
+        </li>
+    )
     })
-    
+    console.log(pigTile)
   return (
-      {pigTile}
+      <ul>{pigTile}</ul>
   )
 }
 
